@@ -3,22 +3,22 @@ import { nanoid } from "nanoid"
 
 const AddItem = ({ addItem }) => {
 
-    const [text, updateText] = useState('')
+    const [text, setText] = useState('')
 
     const textHandler = (event) => {
-        updateText(event.target.value)
+        setText(event.target.value)
     }
 
     const add = () => {
-        var _text = text.trim()
-        if (_text.length > 0) {
+        var inputText = text.trim()
+        if (inputText.length > 0) {
             addItem({
                 id: nanoid(),
-                text: _text,
+                text: inputText,
                 date: new Date().toLocaleString(),
                 completed: false
             })
-            updateText('')
+            setText('')
             var textarea = document.getElementById('textarea')
             textarea.focus();
         } else {

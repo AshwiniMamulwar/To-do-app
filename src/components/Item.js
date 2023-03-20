@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react'
 const Item = ({ item, removeItem, updateItem }) => {
     const [editing, setEditing] = useState(false)
     const [completed, setCompleted] = useState(item.completed)
-    const [_text, setText] = useState(item.text)
+    const [text, setText] = useState(item.text)
     const update = () => {
-        var text = _text.trim()
-        if (text.length > 0) {
+        var updatedText = text.trim()
+        if (updatedText.length > 0) {
             item = {
                 ...item,
-                text: _text,
+                text: updatedText,
                 date: new Date().toLocaleString()
             }
             updateItem(item)
@@ -41,7 +41,7 @@ const Item = ({ item, removeItem, updateItem }) => {
                             id='textarea'
                             cols='25'
                             autoFocus='true'
-                            value={_text}
+                            value={text}
                             onChange={(e) => setText(e.target.value)}>
                         </textarea>
                         <button className='item-footer save-button'

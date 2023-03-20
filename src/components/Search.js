@@ -3,7 +3,7 @@ import { MdSearch } from "react-icons/md"
 
 const Search = ({ filterItems }) => {
     
-    const [searchText, updateSearchText] = useState('')
+    const [searchText, setSearchText] = useState('')
 
     return (
         <div className='search'>
@@ -14,7 +14,7 @@ const Search = ({ filterItems }) => {
                 placeholder='Type to search...'
                 onChange={(event) => {
                     filterItems(event.target.value)
-                    updateSearchText(event.target.value)
+                    setSearchText(event.target.value)
                 }}
             />
         </div>
